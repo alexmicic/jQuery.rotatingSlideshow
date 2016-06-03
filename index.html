@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jQuery.rotatingSlideshow</title>
+    <link href="css/jquery.rotatingSlideshow.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+    <div class="rotating-slideshow">
+        <div id="slider-main" data-position="1" data-deg="0">
+            <div id="slider-btns" class="button">
+                <a id="pos1" href="#" class="pos1" data-position="1"></a>
+                <a id="pos2" href="#" class="pos2" data-position="4"></a>
+                <a id="pos3" href="#" class="pos3" data-position="3"></a>
+                <a id="pos4" href="#" class="pos4" data-position="2"></a>
+            </div>
+            <div class="slider-overlay">
+                <div class="active" data-position="1">
+                	<h3>Different</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+                <div data-position="2">
+                	<h3>Creative</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+                <div data-position="3">
+                	<h3>Fancy</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+                <div data-position="4">
+                	<h3>Solutions</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+            </div>
+            <div class="slides">
+                <img class="active" src="images/slide1.jpg" data-position="1">
+                <img src="images/slide4.jpg" data-position="2">
+                <img src="images/slide3.jpg" data-position="3">
+                <img src="images/slide2.jpg" data-position="4">
+            </div>
+            <img class="spinner-btn" src="images/button.png" alt="">
+            <img class="spinner" src="images/slides-overlay.jpg" alt="">
+        </div>
+        <audio id="slider-sound" preload="auto">
+            <source src="sound/sound.mp3"></source>
+            This browser does not support the HTML5 audio tag.
+        </audio> 
+    </div>
+
+	<script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/jquery.rotatingSlideshow.js"></script>
+    <script>
+	$(document).ready(function(){
+	  $('.rotating-slideshow').rotatingSlideshow({
+		sliderHolder: '#slider-main',
+		btnsHolder: '#slider-btns',
+		audioHolder: '#slider-sound',
+		auto: true,
+		autoSpeed: '6000'
+	  });
+	});
+	</script>
+</body>
+</html>
