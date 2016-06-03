@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>jQuery.rotatingSlideshow by alexmicic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">jQuery.rotatingSlideshow</h1>
+      <h2 class="project-tagline">Simple jQuery plugin that allows you to create unique slideshow layout</h2>
+      <a href="https://github.com/alexmicic/jQuery.rotatingSlideshow" class="btn">View on GitHub</a>
+      <a href="https://github.com/alexmicic/jQuery.rotatingSlideshow/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/alexmicic/jQuery.rotatingSlideshow/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="jqueryrotatingslideshow" class="anchor" href="#jqueryrotatingslideshow" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>jQuery.rotatingSlideshow</h1>
+
+<p>Simple jQuery plugin that allows you to create unique, but limited slideshow layout. It is design only to contain 4 slides and it colors and images can be adjusted by changing the .psd files included into project.</p>
+
+<h2>
+<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demo</h2>
+
+<p>Check out the demo example <a href="http://alexmicic.github.io/jQuery.rotatingSlideshow.demo/">here</a>.</p>
+
+<h2>
+<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dependencies</h2>
+
+<p>The plugin requires jQuery 1.9 or higher.</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>To start using the plugin, simply include css file in the <code>head</code> section then add necessary <code>html</code> code and script file somewhere after jQuery library, preferably at the bottom of the page, like on the example below: </p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;!DOCTYPE html&gt;
+&lt;<span class="pl-ent">html</span>&gt;
+  &lt;<span class="pl-ent">head</span>&gt;
+    <span class="pl-c">&lt;!-- css --&gt;</span>
+    &lt;<span class="pl-ent">link</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>~/jquery.rotatingSlideshow.css<span class="pl-pds">"</span></span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span> /&gt;
+  &lt;/<span class="pl-ent">head</span>&gt;
+  &lt;<span class="pl-ent">body</span>&gt;
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>rotating-slideshow<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">div</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>slider-main<span class="pl-pds">"</span></span> <span class="pl-e">data-position</span>=<span class="pl-s"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span> <span class="pl-e">data-deg</span>=<span class="pl-s"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">div</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>slider-btns<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>button<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">a</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>pos1<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>pos1<span class="pl-pds">"</span></span> <span class="pl-e">data-position</span>=<span class="pl-s"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">a</span>&gt;
+                &lt;<span class="pl-ent">a</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>pos2<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>pos2<span class="pl-pds">"</span></span> <span class="pl-e">data-position</span>=<span class="pl-s"><span class="pl-pds">"</span>4<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">a</span>&gt;
+                &lt;<span class="pl-ent">a</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>pos3<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>pos3<span class="pl-pds">"</span></span> <span class="pl-e">data-position</span>=<span class="pl-s"><span class="pl-pds">"</span>3<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">a</span>&gt;
+                &lt;<span class="pl-ent">a</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>pos4<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>pos4<span class="pl-pds">"</span></span> <span class="pl-e">data-position</span>=<span class="pl-s"><span class="pl-pds">"</span>2<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">a</span>&gt;
+            &lt;/<span class="pl-ent">div</span>&gt;
+            &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>slider-overlay<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>active<span class="pl-pds">"</span></span> <span class="pl-e">data-position</span>=<span class="pl-s"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span>&gt;
+                    &lt;<span class="pl-ent">h3</span>&gt;Different&lt;/<span class="pl-ent">h3</span>&gt;
+                  &lt;<span class="pl-ent">p</span>&gt;Optional text goes here&lt;/<span class="pl-ent">p</span>&gt;
+                &lt;/<span class="pl-ent">div</span>&gt;
+                &lt;<span class="pl-ent">div</span> <span class="pl-e">data-position</span>=<span class="pl-s"><span class="pl-pds">"</span>2<span class="pl-pds">"</span></span>&gt;
+                    &lt;<span class="pl-ent">h3</span>&gt;Creative&lt;/<span class="pl-ent">h3</span>&gt;
+                  &lt;<span class="pl-ent">p</span>&gt;Optional text goes here&lt;/<span class="pl-ent">p</span>&gt;
+                &lt;/<span class="pl-ent">div</span>&gt;
+                &lt;<span class="pl-ent">div</span> <span class="pl-e">data-position</span>=<span class="pl-s"><span class="pl-pds">"</span>3<span class="pl-pds">"</span></span>&gt;
+                    &lt;<span class="pl-ent">h3</span>&gt;Fancy&lt;/<span class="pl-ent">h3</span>&gt;
+                  &lt;<span class="pl-ent">p</span>&gt;Optional text goes here&lt;/<span class="pl-ent">p</span>&gt;
+                &lt;/<span class="pl-ent">div</span>&gt;
+                &lt;<span class="pl-ent">div</span> <span class="pl-e">data-position</span>=<span class="pl-s"><span class="pl-pds">"</span>4<span class="pl-pds">"</span></span>&gt;
+                    &lt;<span class="pl-ent">h3</span>&gt;Solutions&lt;/<span class="pl-ent">h3</span>&gt;
+                  &lt;<span class="pl-ent">p</span>&gt;Optional text goes here&lt;/<span class="pl-ent">p</span>&gt;
+                &lt;/<span class="pl-ent">div</span>&gt;
+            &lt;/<span class="pl-ent">div</span>&gt;
+            &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>slides<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">img</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>active<span class="pl-pds">"</span></span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>images/slide1.jpg<span class="pl-pds">"</span></span> <span class="pl-e">data-position</span>=<span class="pl-s"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">img</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>images/slide4.jpg<span class="pl-pds">"</span></span> <span class="pl-e">data-position</span>=<span class="pl-s"><span class="pl-pds">"</span>2<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">img</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>images/slide3.jpg<span class="pl-pds">"</span></span> <span class="pl-e">data-position</span>=<span class="pl-s"><span class="pl-pds">"</span>3<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">img</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>images/slide2.jpg<span class="pl-pds">"</span></span> <span class="pl-e">data-position</span>=<span class="pl-s"><span class="pl-pds">"</span>4<span class="pl-pds">"</span></span>&gt;
+            &lt;/<span class="pl-ent">div</span>&gt;
+            &lt;<span class="pl-ent">img</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>spinner-btn<span class="pl-pds">"</span></span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>images/button.png<span class="pl-pds">"</span></span> <span class="pl-e">alt</span>=<span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">img</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>spinner<span class="pl-pds">"</span></span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>images/slides-overlay.jpg<span class="pl-pds">"</span></span> <span class="pl-e">alt</span>=<span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>&gt;
+        &lt;/<span class="pl-ent">div</span>&gt;
+        &lt;<span class="pl-ent">audio</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>slider-sound<span class="pl-pds">"</span></span> <span class="pl-e">preload</span>=<span class="pl-s"><span class="pl-pds">"</span>auto<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">source</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>sound/sound.mp3<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">source</span>&gt;
+            This browser does not support the HTML5 audio tag.
+        &lt;/<span class="pl-ent">audio</span>&gt; 
+    &lt;/<span class="pl-ent">div</span>&gt;
+
+    <span class="pl-c">&lt;!-- scripts --&gt;</span>
+<span class="pl-s1">    &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>~/jquery.{&gt;= 1.9}.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span>
+<span class="pl-s1">    &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>~/jquery.rotatingSlideshow.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span>
+  &lt;/<span class="pl-ent">body</span>&gt;
+&lt;/<span class="pl-ent">html</span>&gt;</pre></div>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>After you included script into your page, you need to initialize slideshow plugin. It can be done like on the example below:</p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;!DOCTYPE html&gt;
+&lt;<span class="pl-ent">html</span>&gt;
+  &lt;<span class="pl-ent">head</span>&gt;
+    <span class="pl-c">&lt;!-- css --&gt;</span>
+    &lt;<span class="pl-ent">link</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>~/jquery.rotatingSlideshow.css<span class="pl-pds">"</span></span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span> /&gt;
+  &lt;/<span class="pl-ent">head</span>&gt;
+  &lt;<span class="pl-ent">body</span>&gt;
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>rotating-slideshow<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">div</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>slider-main<span class="pl-pds">"</span></span> <span class="pl-e">data-position</span>=<span class="pl-s"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span> <span class="pl-e">data-deg</span>=<span class="pl-s"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">div</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>slider-btns<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>button<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">a</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>pos1<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>pos1<span class="pl-pds">"</span></span> <span class="pl-e">data-position</span>=<span class="pl-s"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">a</span>&gt;
+                &lt;<span class="pl-ent">a</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>pos2<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>pos2<span class="pl-pds">"</span></span> <span class="pl-e">data-position</span>=<span class="pl-s"><span class="pl-pds">"</span>4<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">a</span>&gt;
+                &lt;<span class="pl-ent">a</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>pos3<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>pos3<span class="pl-pds">"</span></span> <span class="pl-e">data-position</span>=<span class="pl-s"><span class="pl-pds">"</span>3<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">a</span>&gt;
+                &lt;<span class="pl-ent">a</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>pos4<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>pos4<span class="pl-pds">"</span></span> <span class="pl-e">data-position</span>=<span class="pl-s"><span class="pl-pds">"</span>2<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">a</span>&gt;
+            &lt;/<span class="pl-ent">div</span>&gt;
+            &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>slider-overlay<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>active<span class="pl-pds">"</span></span> <span class="pl-e">data-position</span>=<span class="pl-s"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span>&gt;
+                    &lt;<span class="pl-ent">h3</span>&gt;Different&lt;/<span class="pl-ent">h3</span>&gt;
+                  &lt;<span class="pl-ent">p</span>&gt;Optional text goes here&lt;/<span class="pl-ent">p</span>&gt;
+                &lt;/<span class="pl-ent">div</span>&gt;
+                &lt;<span class="pl-ent">div</span> <span class="pl-e">data-position</span>=<span class="pl-s"><span class="pl-pds">"</span>2<span class="pl-pds">"</span></span>&gt;
+                    &lt;<span class="pl-ent">h3</span>&gt;Creative&lt;/<span class="pl-ent">h3</span>&gt;
+                  &lt;<span class="pl-ent">p</span>&gt;Optional text goes here&lt;/<span class="pl-ent">p</span>&gt;
+                &lt;/<span class="pl-ent">div</span>&gt;
+                &lt;<span class="pl-ent">div</span> <span class="pl-e">data-position</span>=<span class="pl-s"><span class="pl-pds">"</span>3<span class="pl-pds">"</span></span>&gt;
+                    &lt;<span class="pl-ent">h3</span>&gt;Fancy&lt;/<span class="pl-ent">h3</span>&gt;
+                  &lt;<span class="pl-ent">p</span>&gt;Optional text goes here&lt;/<span class="pl-ent">p</span>&gt;
+                &lt;/<span class="pl-ent">div</span>&gt;
+                &lt;<span class="pl-ent">div</span> <span class="pl-e">data-position</span>=<span class="pl-s"><span class="pl-pds">"</span>4<span class="pl-pds">"</span></span>&gt;
+                    &lt;<span class="pl-ent">h3</span>&gt;Solutions&lt;/<span class="pl-ent">h3</span>&gt;
+                  &lt;<span class="pl-ent">p</span>&gt;Optional text goes here&lt;/<span class="pl-ent">p</span>&gt;
+                &lt;/<span class="pl-ent">div</span>&gt;
+            &lt;/<span class="pl-ent">div</span>&gt;
+            &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>slides<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">img</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>active<span class="pl-pds">"</span></span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>images/slide1.jpg<span class="pl-pds">"</span></span> <span class="pl-e">data-position</span>=<span class="pl-s"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">img</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>images/slide4.jpg<span class="pl-pds">"</span></span> <span class="pl-e">data-position</span>=<span class="pl-s"><span class="pl-pds">"</span>2<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">img</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>images/slide3.jpg<span class="pl-pds">"</span></span> <span class="pl-e">data-position</span>=<span class="pl-s"><span class="pl-pds">"</span>3<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">img</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>images/slide2.jpg<span class="pl-pds">"</span></span> <span class="pl-e">data-position</span>=<span class="pl-s"><span class="pl-pds">"</span>4<span class="pl-pds">"</span></span>&gt;
+            &lt;/<span class="pl-ent">div</span>&gt;
+            &lt;<span class="pl-ent">img</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>spinner-btn<span class="pl-pds">"</span></span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>images/button.png<span class="pl-pds">"</span></span> <span class="pl-e">alt</span>=<span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">img</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>spinner<span class="pl-pds">"</span></span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>images/slides-overlay.jpg<span class="pl-pds">"</span></span> <span class="pl-e">alt</span>=<span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>&gt;
+        &lt;/<span class="pl-ent">div</span>&gt;
+        &lt;<span class="pl-ent">audio</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>slider-sound<span class="pl-pds">"</span></span> <span class="pl-e">preload</span>=<span class="pl-s"><span class="pl-pds">"</span>auto<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">source</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>sound/sound.mp3<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">source</span>&gt;
+            This browser does not support the HTML5 audio tag.
+        &lt;/<span class="pl-ent">audio</span>&gt; 
+    &lt;/<span class="pl-ent">div</span>&gt;
+
+    <span class="pl-c">&lt;!-- scripts --&gt;</span>
+<span class="pl-s1">    &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>~/jquery.{&gt;= 1.9}.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span>
+<span class="pl-s1">    &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>~/jquery.rotatingSlideshow.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span>
+<span class="pl-s1">    &lt;<span class="pl-ent">script</span>&gt;</span>
+<span class="pl-s1">    <span class="pl-en">$</span>(<span class="pl-c1">document</span>).<span class="pl-en">ready</span>(<span class="pl-k">function</span>(){</span>
+<span class="pl-s1">      <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.rotating-slideshow<span class="pl-pds">'</span></span>).<span class="pl-en">rotatingSlideshow</span>({</span>
+<span class="pl-s1">        sliderHolder<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>#slider-main<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">        btnsHolder<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>#slider-btns<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">        audioHolder<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>#slider-sound<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">        auto<span class="pl-k">:</span> <span class="pl-c1">true</span>,</span>
+<span class="pl-s1">        autoSpeed<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>6000<span class="pl-pds">'</span></span></span>
+<span class="pl-s1">      });</span>
+<span class="pl-s1">    });</span>
+<span class="pl-s1">    &lt;/<span class="pl-ent">script</span>&gt;</span>
+  &lt;/<span class="pl-ent">body</span>&gt;
+&lt;/<span class="pl-ent">html</span>&gt;</pre></div>
+
+<h3>
+<a id="options-defaults" class="anchor" href="#options-defaults" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><em>options (defaults)</em>
+</h3>
+
+<ul>
+<li>
+<strong>sliderHolder</strong> <em>[String]</em> : ID of the main container.</li>
+<li>
+<strong>btnsHolder</strong> <em>[String]</em> : ID of the buttons container.</li>
+<li>
+<strong>audioHolder</strong> <em>[String]</em> : ID of the sound container.</li>
+<li>
+<strong>auto</strong> <em>[Boolean]</em> : Turn on <code>true</code> or off <code>false</code> auto rotation.</li>
+<li>
+<strong>autoSpeed</strong> <em>[Number]</em> : Delay between the slides (ms).</li>
+</ul>
+
+<h2>
+<a id="licence" class="anchor" href="#licence" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Licence</h2>
+
+<p>(The MIT License)</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/alexmicic/jQuery.rotatingSlideshow">jQuery.rotatingSlideshow</a> is maintained by <a href="https://github.com/alexmicic">alexmicic</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
