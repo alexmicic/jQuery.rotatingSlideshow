@@ -53,7 +53,7 @@ To start using the plugin, simply include css file in the ```head``` section the
             <img class="spinner" src="images/slides-overlay.jpg" alt="">
         </div>
         <audio id="slider-sound" preload="auto">
-            <source src="sound/sound.mp3"></source>
+            <source src="sound/sound.mp3">
             This browser does not support the HTML5 audio tag.
         </audio> 
     </div>
@@ -111,7 +111,7 @@ After you included script into your page, you need to initialize slideshow plugi
             <img class="spinner" src="images/slides-overlay.jpg" alt="">
         </div>
         <audio id="slider-sound" preload="auto">
-            <source src="sound/sound.mp3"></source>
+            <source src="sound/sound.mp3">
             This browser does not support the HTML5 audio tag.
         </audio> 
     </div>
